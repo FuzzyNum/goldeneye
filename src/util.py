@@ -10,6 +10,7 @@ import torchvision.models as models
 import timm
 import numpy as np
 from num_sys_class import *
+from othermodels import deepseek
 
 '''
 Environment Variables
