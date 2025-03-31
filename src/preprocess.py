@@ -33,15 +33,15 @@ def gather_min_max_per_layer(model, data_iter, batch_size, precision="FP16", cud
     for input_data in tqdm(data_iter):
 
         # prepare the next batch for inference
-        images, labels = input_data
+        docs, labels = input_data
         if cuda_en:
-            images = images.cuda()
+            docs = docs.cuda()
             labels = labels.cuda()
         if precision == "FP16":
-            images = images.half()
+            docs = docs.half()
 
         activations = []  # reset before every inference
-        model(images)  # run an inference
+        model(docs)  # run an inference
 
         # Range gathering: iterate through each layer
 
